@@ -1,3 +1,7 @@
+
+
+import styles from './InputButtonGroup.css';
+
 export default function InputDeviceInfo(props){
     return (
         <p className="actions">

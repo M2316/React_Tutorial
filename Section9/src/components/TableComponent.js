@@ -4,14 +4,10 @@ import TableHeader from "./TableHeader";
 
 import TableItem from "./TableItem";
 
+import styles from "./TableComponent.css";
+
 
 export default function TableComponent(props) {
-
-
-
-
-
-
 
 
     return (

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import InputGroupRow from "./InputGroupRow";
 import InputButtonGroup from "./InputButtonGroup";
 
+import style from "./FormComponent.css";
+
 
 export default function FormComponent(props) {
 
@@ -55,37 +57,6 @@ export default function FormComponent(props) {
             <InputGroupRow leftText={"Current Savings  ($)"} leftId={"current-savings"} rightText={"Yearly Savings ($)"} rightId={"yearly-contribution"} onChangeHandler={InputChangeEventHandler}></InputGroupRow>
             <InputGroupRow leftText={"Expected Interest (%, per year)"} leftId={"expected-return"} rightText={"Investment Duration (years)"} rightId={"duration"} onChangeHandler={InputChangeEventHandler}></InputGroupRow>
             <InputButtonGroup onSubmitHandler={submitHandler}></InputButtonGroup>
-            {
-                /* <div className="input-group">
-                <p>
-                    <label htmlFor="current-savings"></label>
-                    <input type="number" id="current-savings" />
-                </p>
-                <p>
-                    <label htmlFor="yearly-contribution"></label>
-                    <input type="number" id="yearly-contribution" />
-                </p>
-            </div>
-            <div className="input-group">
-                <p>
-                    <label htmlFor="expected-return">
-                        
-                    </label>
-                    <input type="number" id="expected-return" />
-                </p>
-                <p>
-                    <label htmlFor="duration"></label>
-                    <input type="number" id="duration" />
-                </p>
-            </div>
-            <p className="actions">
-                <button type="reset" className="buttonAlt">
-                    Reset
-                </button>
-                <button type="submit" className="button">
-                    Calculate
-                </button>
-            </p> */}
         </form>
 
     );
