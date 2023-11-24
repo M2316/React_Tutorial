@@ -1,0 +1,8 @@
+  .InputRowGroup{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 35%;
+    text-align: left;
+    
+  }

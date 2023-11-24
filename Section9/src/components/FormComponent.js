@@ -5,58 +5,49 @@ import InputButtonGroup from "./InputButtonGroup";
 import style from "./FormComponent.css";
 
 
+const initiaUserInput = {
+    currentSavings : 0,
+    yearlySavings : 0,
+    expectedReturn : 0,
+    duration : 0
+}
+
+
 export default function FormComponent(props) {
 
+    const [inputValue,setInputValue] = useState(initiaUserInput);
 
-    const [currentSavings,setCurrentSavings] = useState("");
-    const [yearlySavings,setYearlySavings] = useState("");
-    const [expectedReturn,setExpectedReturn] = useState("");
-    const [duration,setDuration] = useState("");
-
-    
-    
-    const submitSavingInfo = e =>{
-        // setSavingInfo("state");    
-    }
 
 
     const InputChangeEventHandler = (e)=>{
+
+        setInputValue((inputValue)=>{
+            return {
+                ...inputValue,
+                [e.target.id]:e.target.value
+            };
+        });
         
-        switch(e.target.id){
-            case "current-savings":
-                setCurrentSavings(e.target.value);
-                break;
-            case "yearly-contribution":
-                setYearlySavings(e.target.value);
-            break;
-            case "expected-return":
-                setExpectedReturn(e.target.value);
-            break;
-            case "duration":
-                setDuration(e.target.value);
-                break;
-            }
     }
 
     const submitHandler = e =>{
         e.preventDefault();
-        let items = {
-            "currentSavings":currentSavings,
-            "yearlySavings":yearlySavings,
-            "expectedReturn":expectedReturn,
-            "duration":duration
-        }
-
-        props.onCalculateHandler(items);
+        props.onCalculateHandler(inputValue);
         return;
+    }
+    
+    const resetHandler = e =>{
+        setInputValue(initiaUserInput);
+        
+        props.onCalculateHandler({});
     }
 
 
     return (
-        <form className="form" onSubmit={submitHandler}>
+        <form className="form" onSubmit={submitHandler} onReset={resetHandler}>
             <InputGroupRow leftText={"Current Savings  ($)"} leftId={"current-savings"} rightText={"Yearly Savings ($)"} rightId={"yearly-contribution"} onChangeHandler={InputChangeEventHandler}></InputGroupRow>
             <InputGroupRow leftText={"Expected Interest (%, per year)"} leftId={"expected-return"} rightText={"Investment Duration (years)"} rightId={"duration"} onChangeHandler={InputChangeEventHandler}></InputGroupRow>
-            <InputButtonGroup onSubmitHandler={submitHandler}></InputButtonGroup>
+            <InputButtonGroup onSubmitHandler={submitHandler} onRestHandler={resetHandler}></InputButtonGroup>
         </form>
 
     );

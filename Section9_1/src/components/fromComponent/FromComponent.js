@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import styles from './FromComponent.module.css';
 import InputRowGroup from "./InputRowGroup";
 
 import ButtonGroup from "./ButtonGroup";
+
 
 export default function FromComponent(props) {
 
@@ -29,14 +31,14 @@ export default function FromComponent(props) {
 
   
   return (
-    <form onSubmit={submitHandler} className="FormComponent">
+    <form onSubmit={submitHandler} className={`${styles.FormComponent}`}>
       <InputRowGroup>
-        <label>Username</label>
-        <input name="userName" onChange={inputChangeHandler}/>
+        <label htmlFor="userName">Username</label>
+        <input type="text" id="userName" name="userName" onChange={inputChangeHandler}/>
       </InputRowGroup>
       <InputRowGroup>
-        <label>Age(Years)</label>
-        <input name="userAge" onChange={inputChangeHandler}/>
+        <label htmlFor="userAge">Age(Years)</label>
+        <input type="number" id="userAge" name="userAge" onChange={inputChangeHandler}/>
       </InputRowGroup>
       <ButtonGroup></ButtonGroup>
     </form>
