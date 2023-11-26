@@ -18,15 +18,17 @@ function App() {
   const [savingsDataState,setSavingsDataState] = useState('');
 
   const calculateHandler = (userInput) => {
-    // 양식을 제출할 때 트리거해야 합니다
+    if(userInput){
+      // 양식을 제출할 때 트리거해야 합니다
     // 하지만 양식의 제출 이벤트에 직접 바인딩하고 싶지 않을 수도 있습니다...
 
     const yearlyData = []; // 연간 실적
 
-    let currentSavings = +userInput['currentSavings']; // 이 입력 개체의 모양을 자유롭게 변경하세요!
-    const yearlyContribution = +userInput['yearlySavings']; // 언급된 바와 같이: 모양을 자유롭게 변경하십시오...
-    const expectedReturn = +userInput['expectedReturn'] / 100;
+    let currentSavings = +userInput['current-savings']; // 이 입력 개체의 모양을 자유롭게 변경하세요!
+    const yearlyContribution = +userInput['yearly-contribution']; // 언급된 바와 같이: 모양을 자유롭게 변경하십시오...
+    const expectedReturn = +userInput['expected-return'] / 100;
     const duration = +userInput['duration'];
+    const initalInvestment = +userInput['current-savings'];
 
     // 아래 코드는 연간 결과(총저축, 이자 등)를 계산합니다
     for (let i = 0; i < duration; i++) {
@@ -38,12 +40,14 @@ function App() {
         yearlyInterest: yearlyInterest,
         savingsEndOfYear: currentSavings,
         yearlyContribution: yearlyContribution,
+        initalInvestment: initalInvestment
       });
     }
 
     // 연간 데이터를 사용하여 수행...
     setSavingsDataState(yearlyData);
     console.log(savingsDataState);
+    }
   };
 
   return (

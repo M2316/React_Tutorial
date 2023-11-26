@@ -1,0 +1,15 @@
+.ButtonGroup{
+    height: 30%;
+    display: flex;
+    align-items: center;
+  }
+  .ButtonGroup button{
+    background-color: rgb(150, 20, 194);
+    border: none;
+    color: rgb(240, 240, 240);
+    height: 25px;
+    width: 80px;
+  }
+  .ButtonGroup button:hover{
+    cursor: pointer;
+  }

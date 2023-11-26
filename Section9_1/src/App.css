@@ -40,58 +40,79 @@
 
 
 
-.FormComponent{
-  font-size: 16px;
-  font-weight: 700;
-  background-color: white;
-  width: 600px;
-  height: 150px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-radius: 10px;
-  padding: 15px;
-  margin: 30px 15px;
-}
 
-.InputRowGroup{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  height: 35%;
-  text-align: left;
-  
-}
 
-.ButtonGroup{
-  height: 30%;
+
+
+.ModalComponent{
+  position: fixed;
+  top: 0;
+  background-color: #282c34dc;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
   display: flex;
+  justify-content: center;
   align-items: center;
   
-  
 }
-.ButtonGroup button{
-  background-color: rgb(150, 20, 194);
-  border: none;
-  color: rgb(240, 240, 240);
-  height: 25px;
-  width: 80px;
-}
-
-.ItemGroup{
-  background-color: white;
-  border-radius: 10px;
+.ModalWrap{
   width: 600px;
-  padding: 15px;
-  margin: 0px 15px;
+  height: 200px;
+  display: flex;
+  border-radius: 10px;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color:  rgb(150, 20, 194);
 }
 
-.LabelGroup{
-  border: 1px solid #282c34;
-  border-radius: 3px;
-  font-size: 16px;
+.ModalHeader{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 60px;
+  color: white;
+  font-size: 30px;
   font-weight: 700;
-  text-align: left;
-  padding: 5px 10px;
-  margin: 5px 0px;
+  padding: 0px 20px;
+  line-height: 20px;
+}
+
+.ModalBody{
+  background-color: white;
+  height: 90px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.ModalBody span{
+  padding: 0px 20px;
+  font-size: 16px;
+}
+
+.ModalFooter{
+  height: 50px;
+  background-color: white;
+  border-radius: 0px 00px 10px 10px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding: 0px 15px;
+}
+
+
+.ModalFooter button{
+  width: 80px;
+  height: 27px;
+  color: white;
+  background-color:  rgb(150, 20, 194);
+  border: none;
+  font-weight: 700;
+  
+
+}
+
+
+.ModalFooter button:hover{
+  cursor: pointer;
 }
