@@ -9,7 +9,7 @@ import ItemsComponent from "./components/itemsComponent/ItemsComponent";
 function App() {
 
 
-  const [items,setItems] = useState("");
+  const [items,setItems] = useState([]);
 
   const submitHandler = preveItems=>{
     
