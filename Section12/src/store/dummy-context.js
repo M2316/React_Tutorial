@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 
 
-const DummyContext = React.createContext([
-
-
-]);
+const DummyContext = React.createContext([]);
 
 export const DummyContextProvider = (props) => {
 

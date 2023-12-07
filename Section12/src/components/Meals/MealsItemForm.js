@@ -1,16 +1,19 @@
-import React from 'react'
-import styles from './MealsItemForm.module.css'
-import Input from '../UI/Input'
+import React, { useContext } from "react";
+import styles from "./MealsItemForm.module.css";
+import Input from "../UI/Input";
 
-const MealsItemForm = () => {
+
+const MealsItemForm = (props) => {
+  
+
+
+
   return (
-    <div className={styles.form}>
+    <form className={styles.form} onSubmit={props.onAddCart}>
       <Input label={"Amount"} name={"amount"} type={"number"}></Input>
-      <button>
-        +Add
-      </button>
-    </div>
-  )
-}
+      <button type="submit" >+Add</button>
+    </form>
+  );
+};
 
-export default MealsItemForm
+export default MealsItemForm;

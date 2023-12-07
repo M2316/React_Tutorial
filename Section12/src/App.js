@@ -4,6 +4,8 @@ import MealsSummary from "./components/Meals/MealsSummary";
 import AvailableMeals from "./components/Meals/AvailableMeals";
 
 import DummyContext from "./store/dummy-context";
+import { CartContextProvider } from "./store/cart-context";
+
 
 
 const DUMMY_MEALS = [
@@ -37,15 +39,19 @@ function App() {
 
   const dummyCtx = useContext(DummyContext);
 
+
   useEffect(()=>{
     dummyCtx.changeDummy(DUMMY_MEALS);
   },[]);
+
+
+  
   return (
-    <React.Fragment>
+    <CartContextProvider>
       <Header></Header>
       <MealsSummary></MealsSummary>
       <AvailableMeals></AvailableMeals>
-    </React.Fragment>
+    </CartContextProvider>
   );
 }
 
