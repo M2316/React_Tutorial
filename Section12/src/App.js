@@ -2,7 +2,7 @@ import React, { Fragment, useContext, useEffect } from "react";
 import Header from "./components/Layout/Header";
 import MealsSummary from "./components/Meals/MealsSummary";
 import AvailableMeals from "./components/Meals/AvailableMeals";
-import Modal from "./components/UI/Modal"
+import Modal from "./components/Modal/Modal"
 
 import DummyContext from "./store/dummy-context";
 import CartContext from "./store/cart-context";

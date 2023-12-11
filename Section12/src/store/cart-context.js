@@ -6,7 +6,10 @@ const CartContext = React.createContext({
   modalFlag: false,
   onChangeFlagHandler: () => {},
   cartCount:0,
-  setCartCount:()=>{}
+  setCartCount:()=>{},
+  onRemoveCart:()=>{}
+  
+  
 });
 
 const cartReducer = (state, action) => {
@@ -14,7 +17,7 @@ const cartReducer = (state, action) => {
     case "addCart": {
       if (state.length === 0) {
         state = [{ ...action.payload, qty: 1 }];
-        return state;
+        return [...state];
       }
 
       let equalFlag = false;
@@ -35,7 +38,21 @@ const cartReducer = (state, action) => {
           },
         ];
       }
-      return state;
+      return [...state];
+    }
+
+    
+    case "removeCart": {
+      state.map((item) => {
+        if (item.id === action.payload.id) {
+          item.qty = parseInt(item.qty) - 1;
+          
+          
+          return [...state];
+        }
+        
+      });
+      return [...state]
     }
   }
 };
@@ -52,7 +69,12 @@ export const CartContextProvider = (props) => {
    */
   const addCartList = (item) => {
     cartDispatch({ type: "addCart", payload: item });
+    setCartCount(cartCount+1);
   };
+  const removeCartList = (item)=>{
+    cartDispatch({type: "removeCart", payload: item})
+    setCartCount(cartCount-1);
+  }
 
   const modalFlagChangeHandler = (flag) => {
     setModalFlag(flag);
@@ -66,7 +88,8 @@ export const CartContextProvider = (props) => {
         onChangeFlagHandler: modalFlagChangeHandler,
         modalFlag: modalFlag,
         cartCount:cartCount,
-        setCartCount:setCartCount
+        setCartCount:setCartCount,
+        onRemoveCart:removeCartList
       }}
     >
       {props.children}

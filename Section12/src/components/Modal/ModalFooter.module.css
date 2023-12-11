@@ -1,0 +1,40 @@
+.footer-summary{
+    display: flex;
+    justify-content: space-between;
+    font-weight:900;
+}
+
+.footer-button-box{
+    display: flex;
+    justify-content: right;
+}
+.footer-button-box button{
+    
+    width: 100px;
+    height: 35px;
+    border: 2px solid #8a2b06;
+    border-radius: 30px;
+    outline: none;
+    background-color: white ;
+    color: #8a2b06;
+}
+
+.footer-button-box .footer-order{
+    background-color: #8a2b06;
+    color: white;
+    margin-left: 10px;
+}
+
+
+.footer-button-box button:hover{
+    cursor: pointer;
+    background-color: #692205;
+    border: 2px solid #692205;
+
+    color: white;
+}
+
+
+.footer-close{
+    
+}

@@ -1,10 +1,23 @@
 import classes from './CartItem.module.css';
 
-const CartItem = ({item}) => {
+const CartItem = (props) => {
+
+  let item = props.item;
+
+
+  const plusClickHandler = ()=>{
+    props.plusClick(item); 
+  }
+
+  const minusClickHandler = ()=>{
+    props.minusClick(item); 
+  }
+  
   const price = `$${item.price.toFixed(2)}`;
 
+
   return (
-    <li className={classes['cart-item']}>
+    <li className={classes['cart-item']} style={{display:parseInt(item.qty) >= 1?"":"none"}}>
       <div>
         <h2>{item.name}</h2>
         <div className={classes.summary}>
@@ -13,8 +26,8 @@ const CartItem = ({item}) => {
         </div>
       </div>
       <div className={classes.actions}>
-        <button onClick={item.onRemove}>−</button>
-        <button onClick={item.onAdd}>+</button>
+        <button onClick={minusClickHandler}>−</button>
+        <button onClick={plusClickHandler}>+</button>
       </div>
     </li>
   );
