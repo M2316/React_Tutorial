@@ -16,10 +16,13 @@ const MealsItem = (props) => {
 
   const cartAddHandler = (event) => {
     event.preventDefault();
-    cartCtx.onAddCart({
-      ...item,
-      qty:event.target.amount.value
-    });
+    let amount = parseInt(event.target.amount.value);
+    for(let i=0;i<amount;i++){
+      cartCtx.onAddCart({
+        ...item
+      });  
+    }
+    cartCtx.setCartCount(cartCtx.cartCount + amount);
   };
 
 

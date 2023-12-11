@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import HeaderCartButton from "./HeaderCartButton";
 import styles from "./Header.module.css";
 import bgImg from "../../resource/img/meals.jpg";
+
+
 const Header = () => {
+
+
+
   return (
     <div>
       <div className={styles['main-image']}>
@@ -12,7 +17,7 @@ const Header = () => {
         <div>
           <h1>ReactMeals</h1>
         </div>
-        <HeaderCartButton></HeaderCartButton>
+          <HeaderCartButton/>
       </div>
     </div>
   );

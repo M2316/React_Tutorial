@@ -1,10 +1,13 @@
-import React, { useContext, useEffect } from "react";
+import React, { Fragment, useContext, useEffect } from "react";
 import Header from "./components/Layout/Header";
 import MealsSummary from "./components/Meals/MealsSummary";
 import AvailableMeals from "./components/Meals/AvailableMeals";
+import Modal from "./components/UI/Modal"
 
 import DummyContext from "./store/dummy-context";
-import { CartContextProvider } from "./store/cart-context";
+import CartContext from "./store/cart-context";
+
+
 
 
 
@@ -37,21 +40,28 @@ const DUMMY_MEALS = [
 
 function App() {
 
+  const cartCtx = useContext(CartContext);
+
   const dummyCtx = useContext(DummyContext);
 
+
+  
 
   useEffect(()=>{
     dummyCtx.changeDummy(DUMMY_MEALS);
   },[]);
 
-
   
+  
+
   return (
-    <CartContextProvider>
+    <Fragment>
       <Header></Header>
+      
       <MealsSummary></MealsSummary>
       <AvailableMeals></AvailableMeals>
-    </CartContextProvider>
+      {cartCtx.modalFlag && <Modal items={cartCtx.cartList}></Modal>}
+    </Fragment>
   );
 }
 

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import Card from '../UI/Card'
+import Card from '../Cart/Card'
 import MealsItem from './MealsItem'
 
 import styles from './AvailableMeals.module.css'
@@ -15,8 +15,6 @@ const AvailableMeals = () => {
       <Card>
         {dummyCtx.dummy.map(((item,key)=>
           <MealsItem key={key} item={item}></MealsItem>))}
-
-        
       </Card>
     </div>
   )
